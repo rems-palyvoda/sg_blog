@@ -9,6 +9,22 @@ class PostShowPageTest < ActiveSupport::TestCase
     visit "/"
   end
 
+  def test_show_page_has_post_title
+  	click_link("post_a")
+  	assert page.has_content?("post_a")
+  end
+
+  def test_show_page_has_post_body
+  	click_link("post_a")
+  	assert page.has_content?("AAAA")
+  end
+
+  def test_show_page_has_two_buttons_delete_and_edit
+  	click_link("post_a")
+  	assert page.has_button?("Edit")
+  	assert page.has_button?("Delete")
+  end
+
   def test_link_to_post_show_page_post_a
     click_link("post_a")
     (assert page.has_content?("AAAA")) && (assert page.has_no_content?("BBBB"))
