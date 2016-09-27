@@ -14,6 +14,10 @@ class RootTest < ActiveSupport::TestCase
     assert_equal 10, page.all("li.post-title").count
   end
 
+  def test_visit_home_page_and_see_button_new_post
+    assert page.has_button?("New Post")
+  end
+
   def create_ten_posts
     10.times { |n| Post.create(title: "a_#{n}", body: "AAAA") }
   end

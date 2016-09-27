@@ -1,5 +1,7 @@
 <h2> SG Blog </h2>
 
+<p><%= button_to("New Post", new_post_path)%></p>
+
 <ul>
   <% @posts.each do |post| %>
     <li class="post-title"><%= link_to post.title, post_path(post) %></li>
