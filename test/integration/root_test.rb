@@ -18,7 +18,13 @@ class RootTest < ActiveSupport::TestCase
     assert page.has_button?("New Post")
   end
 
+  def test_visit_home_page_and_click_button_new_post
+    click_button("New Post")
+    assert page.has_button?("Create")
+  end
+
   def create_ten_posts
     10.times { |n| Post.create(title: "a_#{n}", body: "AAAA") }
   end
 end
+
