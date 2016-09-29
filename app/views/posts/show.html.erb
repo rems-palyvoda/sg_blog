@@ -10,7 +10,11 @@
   <%= @post.body %>
 </p>
 
-<p><%= button_to("Edit Post")%></p>
-<p><%= button_to("Delete Post")%></p>
+<button>
+<%= link_to "Edit Post" %>
+</button>
+<button>
+<%= link_to "Delete Post" %>
+</button>
 
 <p><%= link_to "back to index", "/"%></p>
