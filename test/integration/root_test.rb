@@ -15,11 +15,11 @@ class RootTest < ActiveSupport::TestCase
   end
 
   def test_visit_home_page_and_see_button_new_post
-    assert page.has_button?("New Post")
+    assert page.has_link?("New Post")
   end
 
   def test_visit_home_page_and_click_button_new_post
-    click_button("New Post")
+    click_on("New Post")
     assert page.has_button?("Create")
   end
 
