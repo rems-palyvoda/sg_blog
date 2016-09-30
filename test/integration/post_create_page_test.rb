@@ -22,4 +22,12 @@ class PostCreatePageTest < ActiveSupport::TestCase
   def visit_post_create_page_and_see_create_button
   	assert page.has_button?("Create")
   end
+
+  def create_new_post_and_redirect_to_his_show_page
+    page.fill_in("Title", :with => "a_10")
+    page.fill_in("Body", :with => "BBBB")
+    page.click_on("Create")
+    assert page.has_content?("a_10")
+    assert page.has_content?("BBBB")
+  end
 end
