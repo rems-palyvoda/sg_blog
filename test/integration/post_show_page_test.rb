@@ -16,7 +16,7 @@ class PostShowPageTest < ActiveSupport::TestCase
 
   def test_show_page_has_post_body
   	click_link("post_a")
-  	assert page.has_content?("AAAA")
+  	assert page.has_content?("post_a")
   end
 
   def test_show_page_has_two_buttons_delete_and_edit
@@ -27,12 +27,12 @@ class PostShowPageTest < ActiveSupport::TestCase
 
   def test_link_to_post_show_page_post_a
     click_link("post_a")
-    (assert page.has_content?("AAAA")) && (assert page.has_no_content?("BBBB"))
+    (assert page.has_content?("post_a")) && (assert page.has_no_content?("post_b"))
   end
 
   def test_link_to_post_show_page_post_b
     click_link("post_b")
-    (assert page.has_content?("BBBB")) && (assert page.has_no_content?("AAAA"))
+    (assert page.has_content?("post_b")) && (assert page.has_no_content?("post_a"))
   end
 
 end
