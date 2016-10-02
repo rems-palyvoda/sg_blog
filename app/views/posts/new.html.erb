@@ -1,17 +1,7 @@
 <h3>This page has form to create new post</h3>
 
-<%= form_for :post , url: "/posts" do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
- 
-  <p>
-    <%= f.submit "Create"  %>
-  </p>
-<% end %>
+<%= render "form" %>
+
+<button>
+<%= link_to 'Back', posts_path %>
+</button>
