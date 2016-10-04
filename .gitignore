@@ -15,3 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
+
+/lorem_ipsum_2001.txt
