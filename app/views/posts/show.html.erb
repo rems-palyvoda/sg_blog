@@ -11,10 +11,11 @@
 </p>
 
 <button>
-<%= link_to "Edit Post" %>
+<%= link_to "Edit Post", edit_post_path(@post) %>
 </button>
 <button>
-<%= link_to "Delete Post" %>
+<%= link_to "Delete Post", post_path(@post),
+    method: :delete %>
 </button>
 
 <p><%= link_to "back to index", "/"%></p>
