@@ -15,7 +15,7 @@ class RootTest < ActiveSupport::TestCase
   end
 
   def test_visit_home_page_and_see_button_new_post
-    assert page.has_link?("New Post")
+    assert page.has_button?("New Post")
   end
 
   def test_visit_home_page_and_click_button_new_post
@@ -24,7 +24,7 @@ class RootTest < ActiveSupport::TestCase
   end
 
   def create_ten_posts
-    10.times { |n| Post.create(title: "a_#{n}", body: "AAAA") }
+    10.times { |n| Post.create(title: "Post_#{n}", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu blandit metus. Proin luctus, nisi id elementum volutpat, erat mauris semper neque, a commodo quam ante eget risus. Sed sed cras amet.") }
   end
 end
 
