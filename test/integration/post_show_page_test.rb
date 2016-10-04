@@ -1,11 +1,14 @@
 require "test_helper"
-require 'capybara/rails'
 
 class PostShowPageTest < ActiveSupport::TestCase  
 
   def setup
-    Post.create(title: "post_a", body: "AAAA")
-    Post.create(title: "post_b", body: "BBBB")
+    lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                   Aenean eu blandit metus. Proin luctus, nisi id elementum
+                   volutpat, erat mauris semper neque, a commodo quam ante
+                   eget risus. Sed sed cras amet."
+    Post.create(title: "post_a", body: lorem_ipsum)
+    Post.create(title: "post_b", body: lorem_ipsum)
     visit "/"
   end
 
