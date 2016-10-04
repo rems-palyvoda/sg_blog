@@ -1,50 +1,11 @@
 <h2> SG Blog </h2>
 
-<!-- <table>
-  <tr>
-  	<th>Title</th>
-  	<th>Text</th>
-  	<th colspan="2"> </th>
-  </tr>
-
+<ul>
   <% @posts.each do |post| %>
-    <tr>
-      <td>
-      	<%= post.title %>
-      </td>
-      <td>
-      	<%= post.body %>
-      </td>
-      <td>
-        <button>
-        <%= link_to "Show", post_path(post) %>
-        </button>
-      </td>
-      <td>
-        <button>
-        <%= link_to "Edit", edit_post_path(post) %>
-      </button>
-      </td>
-      <td>
-       <button>
-       <%= link_to "Destroy", post_path(post),
-           method: :delete %>
-       </button>	
-      </td>
-    </tr>
+    <li class="post-title"><%= link_to post.title, post_path(post) %></li>
   <% end %>
-</table>
+</ul>
 
 <button>
-  <%= link_to "New post", new_post_path %>
-</button> -->
-
-<% @posts.each do |post| %>
-  <ul>
-    <li><%= link_to post.title, post_path(post) %></li>
-  </ul>
-<% end %>
-
-<button>
-  <%= link_to "New post", new_post_path %>
+  <%= link_to "New Post", new_post_path %>
 </button>
