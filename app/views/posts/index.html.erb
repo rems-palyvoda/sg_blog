@@ -40,7 +40,9 @@
 </button> -->
 
 <% @posts.each do |post| %>
-  <p><%= link_to post.title, post_path(post) %><br></p>
+  <ul>
+    <li><%= link_to post.title, post_path(post) %></li>
+  </ul>
 <% end %>
 
 <button>
