@@ -42,3 +42,7 @@
 <% @posts.each do |post| %>
   <p><%= link_to post.title, post_path(post) %><br></p>
 <% end %>
+
+<button>
+  <%= link_to "New post", new_post_path %>
+</button>
