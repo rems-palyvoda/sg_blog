@@ -24,6 +24,14 @@ class RootTest < ActiveSupport::TestCase
     assert page.has_button?("Create")
   end
 
+  def visit_post_show_page_and_delete_this_one
+    last_post_title = Post.last.title
+    click_link last_post_title
+    click_button "Delete Post"
+    assert_redirected_to posts_path
+    assert page.has_no_content?(last_post_title)
+  end
+
   def create_ten_posts
     5.times { |n| Post.create(title: "Post_#{n}", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu blandit metus. Proin luctus, nisi id elementum volutpat, erat mauris semper neque, a commodo quam ante eget risus. Sed sed cras amet.") }
   end
