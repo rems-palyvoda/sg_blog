@@ -6,27 +6,27 @@ class PostCreatePageTest < ActiveSupport::TestCase
     visit "/posts/new"
   end
 
-  def visit_post_create_page_and_see_labels
+  def test_visit_post_create_page_and_see_labels
     assert page.has_content?("Title")
     assert page.has_content?("Body")
   end
 
-  def visit_post_create_page_and_see_field_title
+  def test_visit_post_create_page_and_see_field_title
   	assert page.has_field?("Title")
   end
 
-  def visit_post_create_page_and_see_field_body
+  def test_visit_post_create_page_and_see_field_body
   	assert page.has_field?("Body")
   end
 
-  def visit_post_create_page_and_see_create_button
-  	assert page.has_button?("Create")
+  def test_visit_post_create_page_and_see_create_button
+  	assert page.has_button?("Create Post")
   end
 
-  def create_new_post_and_redirect_to_his_show_page
+  def test_create_new_post_and_redirect_to_his_show_page
     page.fill_in("Title", :with => "a_10")
     page.fill_in("Body", :with => "BBBB")
-    page.click_on("Create")
+    page.click_on("Create Post")
     assert page.has_content?("a_10")
     assert page.has_content?("BBBB")
   end

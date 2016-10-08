@@ -159,6 +159,7 @@ DEPENDENCIES
   jquery-rails
   minitest-rails
   rails (= 4.2.6)
+  rake
   sass-rails (>= 3.2)
   spring
   sqlite3

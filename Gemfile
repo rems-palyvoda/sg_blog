@@ -21,6 +21,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "rake"
 end
 
 group :development do
