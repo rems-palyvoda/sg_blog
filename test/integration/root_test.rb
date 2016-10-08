@@ -1,6 +1,7 @@
 require "test_helper"
 
 class RootTest < ActiveSupport::TestCase
+  
   def setup
     create_ten_posts
     visit "/"
@@ -11,7 +12,7 @@ class RootTest < ActiveSupport::TestCase
   end
 
   def test_visit_home_page_and_see_ten_post_titles
-    assert_equal 10, page.all("li.post-title").count
+    assert_equal 5, page.all("li.post-title").count
   end
 
   def test_visit_home_page_and_see_button_new_post
@@ -24,7 +25,7 @@ class RootTest < ActiveSupport::TestCase
   end
 
   def create_ten_posts
-    10.times { |n| Post.create(title: "Post_#{n}", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu blandit metus. Proin luctus, nisi id elementum volutpat, erat mauris semper neque, a commodo quam ante eget risus. Sed sed cras amet.") }
+    5.times { |n| Post.create(title: "Post_#{n}", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu blandit metus. Proin luctus, nisi id elementum volutpat, erat mauris semper neque, a commodo quam ante eget risus. Sed sed cras amet.") }
   end
 end
 
