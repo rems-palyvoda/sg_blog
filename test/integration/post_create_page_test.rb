@@ -1,7 +1,7 @@
 require "test_helper"
 
 class PostCreatePageTest < ActiveSupport::TestCase
-
+  
   def setup
     visit "/posts/new"
   end
@@ -24,10 +24,9 @@ class PostCreatePageTest < ActiveSupport::TestCase
   end
 
   def test_create_new_post_and_redirect_to_his_show_page
-    page.fill_in("Title", :with => "a_10")
-    page.fill_in("Body", :with => "BBBB")
-    page.click_on("Create Post")
-    assert page.has_content?("a_10")
-    assert page.has_content?("BBBB")
+    page.fill_in("Title", :with => "Post test")
+    page.fill_in("Body", :with => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu blandit metus. Proin luctus, nisi id elementum volutpat, erat mauris semper neque, a commodo quam ante eget risus. Sed sed cras ametsdadasdasdasdasdasdasdasdasdaw.")
+    click_button("Create Post")
+    assert page.has_content?("Post test")
   end
 end
