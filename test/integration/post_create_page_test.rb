@@ -20,13 +20,13 @@ class PostCreatePageTest < ActiveSupport::TestCase
   end
 
   def test_visit_post_create_page_and_see_create_button
-  	assert page.has_button?("Create Post")
+  	assert page.has_button?("Create new post")
   end
 
   def test_create_new_post_and_redirect_to_his_show_page
     page.fill_in("Title", :with => "Post test")
     page.fill_in("Body", :with => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu blandit metus. Proin luctus, nisi id elementum volutpat, erat mauris semper neque, a commodo quam ante eget risus. Sed sed cras ametsdadasdasdasdasdasdasdasdasdaw.")
-    click_button("Create Post")
+    click_button("Create new post")
     assert page.has_content?("Post test")
   end
 end
