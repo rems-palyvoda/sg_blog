@@ -1,7 +1,7 @@
 <div>
   <div >
     <% @posts.each do |post| %>
-      <%= link_to post_path(post.id) do %>
+      <%= link_to post_path(post.id), class: "list-group-item" do %>
         <h4><%= post.title %></h4>
         <p><%= limited_posts_body(post.body) %></p>
       <% end %>
