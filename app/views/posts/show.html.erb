@@ -13,5 +13,5 @@
 </button>
 <button>
 <%= link_to "Delete Post", post_path(@post),
-    method: :delete %>
+    method: :delete, data: { confirm: "Are you shure?" } %>
 </button>
