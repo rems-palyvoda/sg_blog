@@ -1,4 +1,5 @@
 <div class="row"> 
+
   <h3 class="text-center post-title" >
     <%= @post.title %>
   </h3>
@@ -7,22 +8,27 @@
     <p>
       <%= @post.body %>
     </p>
+
     <div class="btn-group">
       <%= button_to "Edit Post", edit_post_path(@post.id), method: :get, class: "btn btn-default" %>
       <br>
       <%= button_to "Delete Post", post_path(@post.id), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
       <%= button_to "Comment" %>
     </div>
+
     <div class="col-md-3">
     </div>
-      <%= form_for @comment do |f| %>
+      <h2>Add a comment:</h2>
+      <%= form_for([@post, @post.comments.build]) do |f| %>
         <div class="col-md-6 form-group">
           <%= f.label :body %><br>
           <%= f.text_area :body, class: "form-control", rows: "11" %>
-          <%= f.submit  %>
+          <%= f.submit class: "button-defautl" %>
         </div>
       <% end %>
+
     <div class="col-md-3">
     </div>
+
   </artcile>
 </div>
