@@ -11,24 +11,16 @@
 
     <div class="btn-group">
       <%= button_to "Edit Post", edit_post_path(@post.id), method: :get, class: "btn btn-default" %>
-      <br>
       <%= button_to "Delete Post", post_path(@post.id), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
-      <%= button_to "Comment" %>
-    </div>
-
-    <div class="col-md-3">
+      <%= button_to "Comment Post", class: "btn btn-default" %>
     </div>
       <h2>Add a comment:</h2>
       <%= form_for([@post, @post.comments.build]) do |f| %>
-        <div class="col-md-6 form-group">
+        <div class="form-group">
           <%= f.label :body %><br>
-          <%= f.text_area :body, class: "form-control", rows: "11" %>
-          <%= f.submit class: "button-defautl" %>
+          <%= f.text_area :body, class: "form-control", rows: "7" %>
+          <%= f.submit "Create Comment", class: "btn btn-default" %>
         </div>
       <% end %>
-
-    <div class="col-md-3">
-    </div>
-
   </artcile>
 </div>
