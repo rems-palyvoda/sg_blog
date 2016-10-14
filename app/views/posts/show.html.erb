@@ -12,21 +12,31 @@
     <div class="btn-group">
       <%= button_to "Edit Post", edit_post_path(@post.id), method: :get, class: "btn btn-default" %>
       <%= button_to "Delete Post", post_path(@post.id), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
-      <%= button_to "Comment Post", class: "btn btn-default" %>
     </div>
 
     <h3>Comments:</h3>
     <div>
-      <% @post.comments.each do |comment| %>
-        <%= comment.body %>
-      <% end %>
+      <ul>
+        <% @post.comments.each do |comment| %>
+          <li>
+            <p>
+              <%= comment.body %>
+            </p>
+            <p style="text-align: right;">
+              <%= link_to "Delete Comment", [comment.post, comment],
+                  method: :delete,
+                  data: {confirm: "Are you sure?"} %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
     <h3>Add a comment:</h3>
     <%= form_for([@post, @post.comments.build]) do |f| %>
       <div class="form-group">
         <%= f.label :body %><br>
-        <%= f.text_area :body, class: "form-control", rows: "7" %>
+        <%= f.text_area :body, class: "form-control", rows: "3" %>
         <%= f.submit "Create Comment", class: "btn btn-default" %>
       </div>
     <% end %>
