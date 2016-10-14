@@ -85,5 +85,13 @@ def sample_bodies
   ]
 end
 
+def sample_comments
+    ["consectetur", "adipiscing", "Engelhart", "Buenaventura", "Dusty Kid"]
+end
+
+
 Post.delete_all
-5.times { Post.create( title: sample_titles.sample, body: sample_bodies.sample) }
+5.times do 
+  post = Post.create(title: sample_titles.sample, body: sample_bodies.sample)
+  Comment.create(body: sample_comments.sample, post_id: post.id)
+end
