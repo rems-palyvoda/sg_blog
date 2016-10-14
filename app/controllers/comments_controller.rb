@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     redirect_to post_path(@post)
+    flash[:error] = "Comment should has more 5 symbols" unless @comment.save
   end
 
   def destroy
