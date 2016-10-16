@@ -7,4 +7,5 @@ class Post < ActiveRecord::Base
   validates :body, presence: true,
     length: {minimum: 200}
 
+  mount_uploader :image, ImageUploader
 end
