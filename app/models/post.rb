@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+  include ActionView::Helpers::TextHelper
+
   has_many :comments, dependent: :destroy
 
   validates :title, presence: true,
