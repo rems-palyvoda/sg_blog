@@ -5,17 +5,19 @@
   </h3>
   
   <p>
-    <%= image_tag @post.image if @post.image %>
+    <%= image_tag @post.image.url if @post.image? %>
   </p>
   
-  <artcile>
+  <artcile class="col-xs-offset-2 col-xs-8 post-body">
     <div>
       <%= simple_format(@post.body) %>
     </div>
 
-    <div>
-      <%= button_to "Edit Post", edit_post_path(@post.id), method: :get, class: "btn btn-default" %>
-      <%= button_to "Delete Post", post_path(@post.id), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+    <div class="post-controls">
+      <%= button_to "Edit Post", edit_post_path(@post.id), method: :get,
+          class: "btn btn-default" %>
+      <%= button_to "Delete Post", post_path(@post.id), method: :delete,
+          class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
     </div>
 
     <%= render "comments" %>
