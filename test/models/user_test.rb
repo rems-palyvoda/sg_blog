@@ -3,11 +3,11 @@ require "test_helper"
 class UserTest < ActiveSupport::TestCase
 
   def user
-    @user = User.new(name: "example name", email: "name@mail.com")
+    user = User.create(name: "example name", email: "name@mail.com")
   end
 
   def test_valid
-    # assert @user.valid?
+    # assert user.valid?
   end
 
   def test_name_should_be_present
