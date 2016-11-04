@@ -5,4 +5,5 @@ require "capybara/rails"
 
 class ActiveSupport::TestCase
   include Capybara::DSL
+  include ApplicationHelper
 end
