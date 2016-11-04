@@ -10,7 +10,7 @@ class CommentTest < ActiveSupport::TestCase
   def test_create_comment
     # new_comment
     page.fill_in("comment[body]", :with => "This is a comment")
-    click_button "Create Comment"
+    click_button "My Comment"
     assert page.has_content?("This is a comment")
   end
 
