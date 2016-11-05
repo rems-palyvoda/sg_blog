@@ -4,15 +4,14 @@
     <%= @post.title %>
   </h1>
   
-  <p>
-    <%= image_tag @post.image.url if @post.image? %>
-  </p>
-  
   <artcile class="col-xs-offset-2 col-xs-8 post-body">
+    <hr>
+    <%= image_tag @post.image.url if @post.image? %>
+    <hr>
     <div>
       <%= simple_format(@post.body) %>
     </div>
-
+    <hr>
    <% if logged_in?%>
       <div>
         <%= link_to "Edit Post", edit_post_path(@post.id), method: :get,

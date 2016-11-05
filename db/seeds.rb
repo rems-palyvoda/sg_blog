@@ -94,7 +94,8 @@ end
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 5.times do 
-  post = Post.create(title: sample_titles.sample, body: sample_bodies.sample)
+  post = Post.create(title: sample_titles.sample, body: sample_bodies.sample,
+                    image: open("app/assets/images/g3352.png"))
   Comment.create(body: sample_comments.sample, post_id: post.id)
 end
 User.create(name:"Example User", email: "user@example.com",
