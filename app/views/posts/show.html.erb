@@ -13,12 +13,14 @@
       <%= simple_format(@post.body) %>
     </div>
 
-    <div class="post-controls">
-      <%= button_to "Edit Post", edit_post_path(@post.id), method: :get,
-          class: "btn btn-default" %>
-      <%= button_to "Delete Post", post_path(@post.id), method: :delete,
-          class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
-    </div>
+   <% if logged_in?%>
+      <div>
+        <%= link_to "Edit Post", edit_post_path(@post.id), method: :get,
+            class: "btn btn-default" %>
+        <%= link_to "Delete Post", post_path(@post.id), method: :delete,
+            class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
 
     <%= render "comments" %>
   </artcile>

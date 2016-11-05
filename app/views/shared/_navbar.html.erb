@@ -3,10 +3,18 @@
     <div class="navbar-header">
       <%= link_to "SG Blog", root_path, class: "navbar-brand" %>
     </div>
-    <%= link_to "Sign up", new_user_path %>
-    <%= link_to "Sign in", login_path %>
-    <div class="nav navbar-nav navbar-right">
-      <%= button_to "New Post", new_post_path, method: :get, class: "btn btn-default navbar-btn" %>
-    </div>
+
+    <% if logged_in? %>
+      <%= link_to "Log out | ", logout_path, method: "delete" %>
+      <%= link_to "My profile", @current_user %>
+      <div class="nav navbar-nav navbar-right">
+        <%= button_to "New Post", new_post_path, method: :get, class: "btn btn-default navbar-btn" %>
+      </div>
+    <% else %>
+      <%= link_to "Sign up", new_user_path %>
+      <%= link_to "Sign in", login_path %>
+    <% end %>
+
+
   </div>
 </div>

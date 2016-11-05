@@ -1,5 +1,14 @@
 <h1>Page for show user</h1>
-<h2><%= @user.name %></h2>
-<h2><%= @user.email %></h2>
-<%= link_to "Edit User", "#", class: "btn" %>
-<%= link_to "Delete User", "#", class: "btn" %>
+
+<% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<p><%= @user.name %></p>
+<% if logged_in? %>
+  <p><%= @user.email %></p>
+  <%= link_to "Edit User", "#", class: "btn" %>
+  <%= link_to "Delete User", "#", class: "btn" %>
+<% end %>

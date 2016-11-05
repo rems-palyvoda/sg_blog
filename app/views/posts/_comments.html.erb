@@ -2,16 +2,25 @@
   <h2>Topic's comments:</h2>
   <% @post.comments.each do |comment| %>
     <%= comment_body(comment) %>
-    <%= link_to "Delete Comment", [comment.post, comment], method: :delete %>
+    <% if logged_in? %>
+      <%= link_to "Delete Comment", [comment.post, comment], method: :delete %>
+    <% end %>
   <% end %>
 </div>
 
-<div id="comment_create_form">
-  <%= form_for [@post, @comment], remote: true do |comment| %> 
-    <%= comment.text_area :body, class: "form-control", rows: "2" %>
-    <%= comment.hidden_field :post_id, value: @post.id %>
-    <%= button_tag(type: "submit", class: "btn btn-sm") do %>
-      <%= "My Comment" %>
+<% if logged_in? %>
+  <div id="comment_create_form">
+    <% if flash[:error] %>
+      <div class="alert alert-danger">
+        <%= flash[:error] %>
+      </div>
     <% end %>
-  <% end %> 
-</div>
+    <%= form_for [@post, @comment], remote: true do |comment| %> 
+      <%= comment.text_area :body, class: "form-control", rows: "2" %>
+      <%= comment.hidden_field :post_id, value: @post.id %>
+      <%= button_tag(type: "submit", class: "btn btn-sm") do %>
+        <%= "My Comment" %>
+      <% end %>
+    <% end %> 
+  </div>
+<% end %>

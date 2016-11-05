@@ -3,7 +3,9 @@ require "test_helper"
 class UserCreatePageTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.create(name: "Test User", email: "test@user.com")
+    @user = User.create(name: "Test User", email: "test@user.com",
+                        password: "foobar",
+                        password_confirmation: "foobar")
     visit "/users/#{@user.id}"
   end
 

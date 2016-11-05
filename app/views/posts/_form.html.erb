@@ -1,34 +1,33 @@
 <%= form_for @post do |f| %>
-    <% if @post.errors.any? %>
-      <div>
-        <h2>Sorry, your post is not valid. Please, try again.</h2>
-      </div>
-    <% end %>
-   
-    <div>
-      <%= f.label :title %><br>
-      <%= f.text_field :title, class: "form-control" %>
-    </div>
-   
-    <div>
-      <%= f.label :body %><br>
-      <%= f.text_area :body, class: "form-control", rows: "15" %>
-    </div>
-    
-    <div class="form-group">
-      <%= f.label      "Add Image" %>
-      <%= f.file_field :image %>
-      <%= f.label      "Delete Image" %>
-      <%= f.check_box :remove_image %>
-    </div>
 
-    <div>
-      <%= if  current_page?(new_post_path)
-        f.submit "Create new post", class: "btn btn-default"
-      else 
-        f.submit "Update existing post", class: "btn btn-default"
-      end %>
+  <% if @post.errors.any? %>
+    <div class="alert alert-danger">
+      <h2>Sorry, your post is not valid. Please, try again.</h2>
     </div>
+  <% end %>
+ 
+  <div>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+ 
+  <div>
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: "form-control", rows: "15" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label      "Add Image" %>
+    <%= f.file_field :image %>
+    <%= f.label      "Delete Image" %>
+    <%= f.check_box :remove_image %>
+  </div>
 
-
+  <div>
+    <%= if  current_page?(new_post_path)
+      f.submit "Create new post", class: "btn btn-default"
+    else 
+      f.submit "Update existing post", class: "btn btn-default"
+    end %>
+  </div>
 <% end %>

@@ -13,12 +13,16 @@ class UserCreatePageTest < ActiveSupport::TestCase
   def test_user_create_page_has_form
     assert page.has_field?("Name")
     assert page.has_field?("Email")
+    assert page.has_field?("Password")
+    assert page.has_field?("Password confirmation")
     assert page.has_button?("Create User")
   end
 
   def test_redirect_to_user_page_after_create
     page.fill_in("Name", :with => "Test User")
     page.fill_in("Email", :with => "user@test.com")
+    page.fill_in("Password", :with => "foobar")
+    page.fill_in("Password confirmation", :with => "foobar")
     click_on("Create User")
     assert page.has_content?("Test User")
   end
