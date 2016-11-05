@@ -1,3 +1,5 @@
+require 'database_cleaner'
+
 def sample_titles
   [
     "#33 01.10.2016",
@@ -89,9 +91,11 @@ def sample_comments
     ["consectetur", "adipiscing", "Engelhart", "Buenaventura", "Dusty Kid"]
 end
 
-
-Post.delete_all
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
 5.times do 
   post = Post.create(title: sample_titles.sample, body: sample_bodies.sample)
   Comment.create(body: sample_comments.sample, post_id: post.id)
 end
+User.create(name:"Example User", email: "user@example.com",
+            password:"foobar", password_confirmation: "foobar")
