@@ -12,11 +12,6 @@ function gmap_show(user) {
       {
         "lat": user.lat,    // coordinates from parameter user
         "lng": user.lng,
-        "picture": {    // setup marker icon
-          "url": 'http://www.planet-action.org/img/2009/interieur/icons/orange-dot.png',
-          "width":  32,
-          "height": 32
-        },
         "infowindow": "<b>" + user.name + "</b> " + user.address + ", " + user.postal_code + " " + user.city
       }
     ]);
@@ -34,11 +29,6 @@ function gmap_form(user) {
         {
           "lat": user.lat,
           "lng": user.lng,
-          "picture": {
-            "url": 'http://www.planet-action.org/img/2009/interieur/icons/orange-dot.png',
-            "width":  32,
-            "height": 32
-          },
           "infowindow": "<b>" + user.name + "</b> " + user.address + ", " + user.postal_code + " " + user.city
         }
       ]);
