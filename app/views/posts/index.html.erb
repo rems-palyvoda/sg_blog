@@ -1,4 +1,8 @@
 <div class="row">
+  <% if !logged_in? %>
+    <p> Hi, guest! </p>
+    <p> Default email: <b>arnold@google.com</b> password: <b>foobar</b>. </p>
+  <% end %>
   <% @posts.each do |post| %>
     <%= link_to post_path(post.id), class: "list-group-item" do %>
       <div></div>

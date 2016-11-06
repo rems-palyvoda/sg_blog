@@ -5,3 +5,23 @@
 .btn {
   display: inline-block;
 }
+
+.navbar-brand {
+  letter-spacing: -2px;
+  color: #fff;
+}
+
+.login-links a{
+    padding-top: 10px;
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+    float: left;
+    line-height: 0.5em;
+
+  }
+
+.login-links a:hover {
+    color: white;
+    text-decoration: none;
+}

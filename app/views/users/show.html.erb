@@ -1,4 +1,9 @@
-<h1>Page for show user</h1>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var user = <%= raw @user.to_json %>
+    gmap_show(user);
+  });
+</script>
 
 <% if flash[:success] %>
   <div class="alert alert-success">
@@ -6,9 +11,16 @@
   </div>
 <% end %>
 
-<p><%= @user.name %></p>
+<p style="color: red;">Чому воно не показує місцезнаходження якщо приходять координати?!!</p>
+
+<h2><%= @user.name %></h2>
 <% if logged_in? %>
-  <p><%= @user.email %></p>
-  <%= link_to "Edit User", "#", class: "btn" %>
-  <%= link_to "Delete User", "#", class: "btn" %>
+  <p>Latitude: <%= @user.lat %></p>
+  <p>Longitude: <%= @user.lng %></p>
+  <p>Email: <%= @user.email %></p>
+
+  <div id="map" style="width: 550px; height: 350px;"></div>
+  <hr>
+  <%= link_to "Edit User", edit_user_path(@user.id), class: "btn btn-default" %>
+  <%= link_to "Delete User", user_path(@user.id), method: :delete, class: "btn btn-warning", data: { confirm: "Are you sure?" } %>
 <% end %>

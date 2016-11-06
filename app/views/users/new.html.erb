@@ -1,18 +1,9 @@
-<h1>Page for create user</h1>
+<h1 class="text-center">Create user</h1>
 <hr>
-<%= form_for @user do |f| %>
-  <%= render "shared/error_messages" %>
-  <%= f.label       :name %>
-  <%= f.text_field  :name%>
-  <br>
-  <%= f.label       :email %>
-  <%= f.email_field :email %>
-  <br>
-  <%= f.label           :password %>
-  <%= f.password_field  :password %>
-  <br>
-  <%= f.label           :password_confirmation %>
-  <%= f.password_field  :password_confirmation %>
-  <br>
-  <%= f.submit %>
-<% end %>
+<%= render "form" %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    gmap_form(null)
+  });
+</script>

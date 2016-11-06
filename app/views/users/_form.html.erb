@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %> 
+  
+  <%= render "shared/error_messages" %>
+
+  <p><%= f.label       :name %><br>
+  <%= f.text_field  :name%></p>
+  <p><%= f.label       :email %><br>
+  <%= f.email_field :email %></p>
+  <p><%= f.label           :password %><br>
+  <%= f.password_field  :password %></p>
+  <p><%= f.label           :password_confirmation %><br>
+  <%= f.password_field  :password_confirmation %></p>
+  <div id="map" style="width: 550px; height: 350px;"></div>
+  <%= f.hidden_field :lat, id: 'map_lat' %>
+  <%= f.hidden_field :lng, id: 'map_lng' %> 
+  <br>
+  <div>
+    <%= if  current_page?(new_user_path)
+      f.submit "Create New User", class: "btn btn-default"
+    else 
+      f.submit "Update Existing User", class: "btn btn-default"
+    end %>
+  </div>
+
+<% end %>

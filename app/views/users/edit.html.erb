@@ -1,0 +1,10 @@
+<h1 class="text-center">Edit user page</h1>
+
+<%= render "form" %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var user = <%= raw @user.to_json %>
+    gmap_form(user);
+  });
+</script>
